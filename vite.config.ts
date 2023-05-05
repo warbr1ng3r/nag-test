@@ -11,6 +11,11 @@ export default defineConfig({
       libraryDirectory: '',
       camel2DashComponentName: false
     }),
+    usePluginImport({
+      libraryName: '@mui/material/styles',
+      libraryDirectory: '',
+      camel2DashComponentName: false
+    }),
     react(),
     tsconfigPaths()
   ]
