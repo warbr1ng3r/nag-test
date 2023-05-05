@@ -18,11 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "#shared/*": ["src/shared/*"],
-      "#features/*": ["src/features/*"],
       "#entities/*": ["src/entities/*"],
       "#widgets/*": ["src/widgets/*"],
-      "#pages/*": ["src/pages/*"],
-      "#layouts/*": ["src/layouts/*"]
     }
   },
   "include": ["src"],

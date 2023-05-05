@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "nag-test",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,17 +10,19 @@
     "lint": "eslint --fix --ext .ts,.tsx ./src"
   },
   "dependencies": {
+    "@mui/material": "^5.12.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swr": "^2.1.5"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
     "@vitejs/plugin-react": "^3.1.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.27.5",
@@ -28,9 +30,10 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
-    "prettier": "^2.8.7",
+    "prettier": "^2.8.8",
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
+    "vite-plugin-importer": "^0.2.5",
     "vite-tsconfig-paths": "^4.2.0"
   }
 }
