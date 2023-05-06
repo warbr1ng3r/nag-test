@@ -1,14 +1,18 @@
+import { Stack, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import './App.css';
+import { PokemonBestiary } from '#widgets/PokemonBestiary';
+
 import { theme } from './theme';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <h1>Vite + React</h1>
-      </div>
+      <Stack justifyContent="center" alignItems="center">
+        <Typography variant="h3">NAG. Тестовое задание Frontend React</Typography>
+        <Typography variant="h4">Александров Илья</Typography>
+        <PokemonBestiary />
+      </Stack>
     </ThemeProvider>
   );
 }
