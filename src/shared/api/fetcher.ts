@@ -1,9 +1,15 @@
-import { Fetcher } from 'swr';
-
 import { PokemonListResponse, PokemonResponse } from '#shared/api/types';
 
-export const fetcherPokemonList: Fetcher<PokemonListResponse, string> = (entrypoint) =>
-  fetch(`https://pokeapi.co/api/v2/${entrypoint}`).then((response) => response.json());
+export const fetcherPokemonList: (
+  entrypoint: string,
+  controller: AbortController
+) => Promise<PokemonListResponse> = (entrypoint, controller: AbortController) =>
+  fetch(`https://pokeapi.co/api/v2/${entrypoint}`, { signal: controller?.signal }).then(
+    (response) => response.json()
+  );
 
-export const fetcherPokemon: Fetcher<PokemonResponse, string> = (url) =>
-  fetch(url).then((response) => response.json());
+export const fetcherPokemon: (
+  url: string,
+  controller: AbortController
+) => Promise<PokemonResponse> = (url: string, controller: AbortController) =>
+  fetch(url, { signal: controller?.signal }).then((response) => response.json());

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { Alert, Pagination, Skeleton, Snackbar } from '@mui/material';
 
@@ -13,10 +13,16 @@ export const PokemonBestiary = () => {
     setCurrentPage(value);
   };
 
-  const { results, isLoading, isError, pageCount } = usePokemonList(
+  const { results, isLoading, isError, isCancelled, pageCount, controller } = usePokemonList(
     COUNT_POKEMONS_ON_PAGE,
     (currentPage - 1) * COUNT_POKEMONS_ON_PAGE
   );
+
+  useEffect(() => {
+    return () => {
+      controller.abort();
+    };
+  }, [currentPage]);
 
   return (
     <>
@@ -43,7 +49,7 @@ export const PokemonBestiary = () => {
           onChange={handleChangePage}
         />
       )}
-      <Snackbar open={isError}>
+      <Snackbar open={isError && !isCancelled}>
         <Alert severity="error" sx={{ width: '100%' }}>
           API Error :(
         </Alert>
