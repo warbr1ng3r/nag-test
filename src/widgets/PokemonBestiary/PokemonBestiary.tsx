@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { Alert, Pagination, Skeleton, Snackbar } from '@mui/material';
 
 import { PokemonCard } from '#entities/PokemonCard';
-import { COUNT_POKEMONS_ON_PAGE, usePokemonList } from '#shared/api';
+import { COUNT_POKEMONS_ON_PAGE, usePokemonList, usePokemonPageCount } from '#shared/api';
 import { capitalizeFirstLetter } from '#shared/helpers';
 import { CardGirdSkeletonItems, CardGrid, CardGridItem } from '#shared/ui/CardGrid';
 
@@ -13,7 +13,8 @@ export const PokemonBestiary = () => {
     setCurrentPage(value);
   };
 
-  const { results, isLoading, isError, isCancelled, pageCount, controller } = usePokemonList(
+  const pageCount = usePokemonPageCount(COUNT_POKEMONS_ON_PAGE);
+  const { results, isLoading, isError, isCancelled, controller } = usePokemonList(
     COUNT_POKEMONS_ON_PAGE,
     (currentPage - 1) * COUNT_POKEMONS_ON_PAGE
   );

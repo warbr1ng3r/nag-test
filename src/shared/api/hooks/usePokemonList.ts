@@ -22,12 +22,6 @@ export const usePokemonList = (limit: number, offset: number) => {
     }
   );
 
-  const { data: immutableData } = useSWR('pokemon?limit=12&offset=0', fetcherPokemonList, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false
-  });
-
   useEffect(() => {
     preload(`pokemon?limit=${limit}&offset=${offset + limit}`, (url) =>
       fetcherPokemonList(url, controller)
@@ -35,7 +29,6 @@ export const usePokemonList = (limit: number, offset: number) => {
   }, [offset]);
 
   return {
-    pageCount: immutableData && Math.ceil(immutableData?.count / limit),
     results: data?.results,
     isLoading,
     isError: !!error,
