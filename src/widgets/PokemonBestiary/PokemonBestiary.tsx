@@ -50,7 +50,7 @@ export const PokemonBestiary = () => {
           onChange={handleChangePage}
         />
       )}
-      <Snackbar open={isError && !isCancelled}>
+      <Snackbar open={!isLoading && isError && !isCancelled}>
         <Alert severity="error" sx={{ width: '100%' }}>
           API Error :(
         </Alert>
