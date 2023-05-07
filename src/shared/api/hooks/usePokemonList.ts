@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-
-import useSWR, { preload } from 'swr';
+import useSWR from 'swr';
 
 import { fetcherPokemonList } from '../fetcher';
 
@@ -21,12 +19,6 @@ export const usePokemonList = (limit: number, offset: number) => {
       }
     }
   );
-
-  useEffect(() => {
-    preload(`pokemon?limit=${limit}&offset=${offset + limit}`, (url) =>
-      fetcherPokemonList(url, controller)
-    );
-  }, [offset]);
 
   return {
     results: data?.results,
