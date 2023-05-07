@@ -1,17 +1,17 @@
-// экспорт типа для списка покемонов
+// типы для списка покемонов
 type Result = {
   name: string;
   url: string;
 };
 
-export type PokemonListResponse = {
+type PokemonListResponse = {
   count: number;
   next: string;
   previous: string;
   results: Result[];
 };
 
-//экспорт типа для одного покемона
+//типы для одного покемона
 type Ability = {
   ability: Species;
   is_hidden: boolean;
@@ -162,7 +162,7 @@ type Type = {
   type: Species;
 };
 
-export type PokemonResponse = {
+type PokemonResponse = {
   abilities: Ability[];
   base_experience: number;
   forms: Species[];
@@ -182,3 +182,14 @@ export type PokemonResponse = {
   types: Type[];
   weight: number;
 };
+
+// типы для fetcher'ов
+export type TFetcherPokemon = (
+  url: string,
+  controller: AbortController
+) => Promise<PokemonResponse>;
+
+export type TFetcherPokemonList = (
+  entrypoint: string,
+  controller: AbortController
+) => Promise<PokemonListResponse>;
