@@ -23,7 +23,7 @@ export const PokemonCard: FC<Props> = ({ name, url }) => {
           {name}
         </Typography>
         {isLoading || isCancelled ? (
-          <Skeleton variant="rounded" width="150px" height="44px" />
+          <Skeleton variant="rounded" width="100%" height="44px" />
         ) : isError ? (
           <>
             <Typography variant="body2">Ошибка API</Typography>
